@@ -14,9 +14,9 @@ pnorm(z.test)
 
 # We form a 95% approximate confidence interval
 pi.hat-qnorm(0.975)*sqrt(pi.hat*(1-pi.hat)/893)
-0.4153128  # lower bound
+#0.4153128  # lower bound
 pi.hat+qnorm(0.975)*sqrt(pi.hat*(1-pi.hat)/893)
-0.4805439  # upper bound
+#0.4805439  # upper bound
 # Because 0.5 is not included in the interval,
 # 0.5 is not a likely value under alpha=0.05.
 
@@ -24,11 +24,14 @@ pi.hat+qnorm(0.975)*sqrt(pi.hat*(1-pi.hat)/893)
 # Wald test
 Wald.stat = (0.9-0.5)/sqrt(0.9*0.1/10)
 2*(1-pnorm(Wald.stat))
+#2.482661e-05
 
 # Score test
 Score.stat = (0.9-0.5)/sqrt(0.5*0.5/10)
 2*(1-pnorm(Score.stat))
+#0.01141204
                
 # Likelihood Ratio Test 
 LRT.stat = 2*(9*log(9/5)+1*log(1/5))
 1-pchisq(LRT.stat,df=1)
+#0.006664318

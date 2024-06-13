@@ -23,15 +23,12 @@ summary(fit2)
 
 # Fitted probability for having a fish when an alligator is 2.0m and 2.5m long
 # when 'Others' is a baseline category
-> coef(fit, matrix = TRUE)
-            log(mu[,1]/mu[,3]) log(mu[,2]/mu[,3])
-(Intercept)           1.617731           5.697444
-x                    -0.110109          -2.465446
+coef(fit, matrix = TRUE)
 
-> exp(1.617731-0.110109*2)/(1+exp(1.617731-0.110109*2)+exp(5.697444-2.465446*2))
-[1] 0.5620215  # pi_1(x=2) --(a1)
-> exp(1.617731-0.110109*2.5)/(1+exp(1.617731-0.110109*2.5)+exp(5.697444-2.465446*2.5))
-[1] 0.7017144  # pi_1(x=2.5) --(a2)
+exp(1.617731-0.110109*2)/(1+exp(1.617731-0.110109*2)+exp(5.697444-2.465446*2))
+#0.5620215  # pi_1(x=2) --(a1)
+exp(1.617731-0.110109*2.5)/(1+exp(1.617731-0.110109*2.5)+exp(5.697444-2.465446*2.5))
+#[1] 0.7017144  # pi_1(x=2.5) --(a2)
 
 # when 'Invertebrates' is a baseline category
 >  coef(fit2, matrix=TRUE)

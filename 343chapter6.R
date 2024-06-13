@@ -12,8 +12,7 @@ fit <- vglm(y ~ x, family = multinomial, data = Gators)
 coef(fit, matrix = TRUE)
 
 summary(fit) # Estimated Coef for x:2 is significant. 
-> dim(Gators)
-[1] 59  2
+dim(Gators)
 # Note: sample size is 59, but each sample has two fitted probabilites. 
 # This lead to 59*2=118 d.f. Since we have 4 estimates, residual deviance has 114 d.f. 
 

@@ -1,11 +1,12 @@
 #Question1
-486/1500-qnorm(0.995)*sqrt(486/1500*(1-486/1500)/1500)
+lower <- 486/1500-qnorm(0.995)*sqrt(486/1500*(1-486/1500)/1500)
 #0.2928744
-486/1500+qnorm(0.995)*sqrt(486/1500*(1-486/1500)/1500)
+upper <- 486/1500+qnorm(0.995)*sqrt(486/1500*(1-486/1500)/1500)
 #0.3551256
+cat("(", lower, ",", upper, ")")
 
 #Question2
-z.test = (486/1500-0.5)/sqrt(0.5*(1-0.5)/1500)
+z.test <- (486/1500-0.5)/sqrt(0.5*(1-0.5)/1500)
 z.test #-13.6329
 
 #to find p value
@@ -16,10 +17,11 @@ z.test #-13.6329
 #Question3
 yes=570/555453
 no=433/8482
-(yes-no) - qnorm(0.975)*sqrt(yes*(1-yes)/555453+no*(1-no)/8482)
+lower <- (yes-no) - qnorm(0.975)*sqrt(yes*(1-yes)/555453+no*(1-no)/8482)
 #-0.05470783
-(yes-no) + qnorm(0.975)*sqrt(yes*(1-yes)/555453+no*(1-no)/8482)
+upper <- (yes-no) + qnorm(0.975)*sqrt(yes*(1-yes)/555453+no*(1-no)/8482)
 #-0.04533835
+cat("(", lower, ",", upper, ")")
 
 #Question4
 pi.c = (570+433)/(555453+8482) # common success probability.
@@ -44,5 +46,6 @@ pvalue = 1-pchisq(1206.728,df=1)
 
 #Question8
 odds = 802*494/(34*53)
-log(odds)-qnorm(0.975)*sqrt(1/802+1/53+1/34+1/494) #4.947985
-log(odds)+qnorm(0.975)*sqrt(1/802+1/53+1/34+1/494) #5.837998
+lower <- log(odds)-qnorm(0.975)*sqrt(1/802+1/53+1/34+1/494) #4.947985
+upper <- log(odds)+qnorm(0.975)*sqrt(1/802+1/53+1/34+1/494) #5.837998
+cat("(", lower, ",", upper, ")")

@@ -12,3 +12,15 @@ upper_bound <- estimate + margin_of_error
 cat("95% Wald Confidence Interval for λ_yes: (", lower_bound, ", ", upper_bound, ")\n", sep = "")
 
 #Question 2
+library(readr)
+library(dplyr)
+deathpenalty <- read_table("/Users/piaoruilin/Desktop/DATASCIENCE/STAT343/DeathPenalty.dat")
+
+model <- glm(count ~ D * V * P, family = poisson, data = deathpenalty)
+summary(model)
+coefficients <- summary(model)$coefficients
+odds_ratio_D_white <- exp(coefficients["Dwhite", "Estimate"])
+odds_ratio_D_white_P_no <- exp(coefficients["Pno", "Estimate"])
+
+odds_ratio_D_white
+odds_ratio_D_white_P_no

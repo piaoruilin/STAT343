@@ -107,3 +107,23 @@ log_mu_Seatbelt_Yes_Fatal <- lambda + 0 + lambda_E_Yes + lambda_K_Fatal + 0 + 0 
 mu_Seatbelt_Yes_Fatal <- exp(log_mu_Seatbelt_Yes_Fatal)
 
 #Question4
+chi_square <- (22 - 8)^2 / (22 + 8)
+p_value <- 1 - pchisq(chi_square, df = 1)
+p_value
+
+#Question5
+chi_square <- (125 - 2)^2 / (125 + 2)
+p_value <- 1 - pchisq(chi_square, df = 1)
+p_value
+
+p_hat <- (125 - 2) / (125 + 2)
+SE <- sqrt(((125 + 2) - (p_hat * (125 + 2))^2) / (125 + 2))
+
+Z <- 1.96
+CI_lower <- p_hat - Z * SE
+CI_upper <- p_hat + Z * SE
+
+CI_lower <- max(0, CI_lower)
+CI_upper <- min(1, CI_upper)
+
+cat("(", CI_lower, ",", CI_upper, ")")
